@@ -1,4 +1,4 @@
-# KumaMate
+# Kuma Mate
 
 KumaMate is a lightweight, open-source Node.js service designed to monitor CPU, memory, and storage usage on Ubuntu virtual machines (VMs), with support for macOS. It provides simple, customizable REST APIs to track system resources in real-time, making it an ideal companion for Uptime Kuma to centralize alerting and monitoring. With flexible parameters like `threshold`, `duration`, and `path`, KumaMate empowers users to define precise alerting conditions, such as triggering alarms when CPU usage exceeds 75% over 60 seconds or when the root filesystem (`/`) usage crosses 90%.
 
@@ -62,8 +62,8 @@ You can set up KumaMate using one of the following methods:
 ### Option 1: Manual Installation
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/hydrabyte-co/kuma-mate.git /opt/kumamate
-   cd /opt/kumamate
+   git clone https://github.com/hydrabyte-co/kuma-mate.git /opt/kuma-mate
+   cd /opt/kuma-mate
    ```
 
 2. **Install Node.js**
@@ -82,7 +82,7 @@ You can set up KumaMate using one of the following methods:
 4. **Set Up Systemd Service**
    Create a systemd service to run KumaMate in the background:
    ```bash
-   sudo nano /etc/systemd/system/kumamate.service
+   sudo nano /etc/systemd/system/kuma-mate.service
    ```
    Add the following:
    ```ini
@@ -93,7 +93,7 @@ You can set up KumaMate using one of the following methods:
    [Service]
    Type=simple
    User=uptimekuma
-   WorkingDirectory=/opt/kumamate
+   WorkingDirectory=/opt/kuma-mate
    ExecStart=/usr/bin/node index.js
    Restart=always
    Environment=NODE_ENV=production
@@ -104,12 +104,12 @@ You can set up KumaMate using one of the following methods:
    Save and exit, then enable the service:
    ```bash
    sudo systemctl daemon-reload
-   sudo systemctl enable kumamate
-   sudo systemctl start kumamate
+   sudo systemctl enable kuma-mate
+   sudo systemctl start kuma-mate
    ```
    Check status:
    ```bash
-   sudo systemctl status kumamate
+   sudo systemctl status kuma-mate
    ```
    Look for `active (running)`.
 
@@ -149,7 +149,7 @@ If you prefer a faster setup, use the provided `setup.sh` script to automate the
 - **Security**: Consider adding an API key to endpoints for authentication.
 
 ### Troubleshooting
-- **Service not running**: Check logs with `sudo journalctl -u kumamate`.
+- **Service not running**: Check logs with `sudo journalctl -u kuma-mate`.
 - **Port conflict**: Ensure port 4000 is free (`sudo netstat -tuln | grep 4000`).
 - **Dependency errors**: Run `npm install` again or check Node.js version.
 
