@@ -1,0 +1,16 @@
+{
+  "name": "kumamate",
+  "version": "1.0.0",
+  "description": "A lightweight Node.js service to monitor CPU, memory, and storage on Ubuntu VMs, integrated with Uptime Kuma.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tony Hoang <tonyh@hydrabyte.co>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "systeminformation": "^5.21.7"
+  }
+}
