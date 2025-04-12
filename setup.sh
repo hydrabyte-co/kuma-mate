@@ -6,8 +6,8 @@
 set -e
 
 # Variables
-INSTALL_DIR="/opt/kumamate"
-SERVICE_FILE="/etc/systemd/system/kumamate.service"
+INSTALL_DIR="/opt/kuma-mate"
+SERVICE_FILE="/etc/systemd/system/kuma-mate.service"
 
 # Step 1: Ensure working directory
 echo "Navigating to KumaMate directory..."
@@ -48,11 +48,11 @@ EOL
 # Step 5: Enable and start the service
 echo "Enabling and starting KumaMate service..."
 sudo systemctl daemon-reload
-sudo systemctl enable kumamate
-sudo systemctl start kumamate
+sudo systemctl enable kuma-mate
+sudo systemctl start kuma-mate
 
 # Step 6: Verify the service
 echo "Verifying KumaMate service..."
-sudo systemctl status kumamate --no-pager
+sudo systemctl status kuma-mate --no-pager
 
 echo "KumaMate setup complete! Access at http://localhost:4000"
