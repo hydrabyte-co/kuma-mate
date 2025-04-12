@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to set up KumaMate on Ubuntu
+# Script to set up Kuma Mate on Ubuntu
 
 # Exit on error
 set -e
@@ -10,7 +10,7 @@ INSTALL_DIR="/opt/kuma-mate"
 SERVICE_FILE="/etc/systemd/system/kuma-mate.service"
 
 # Step 1: Ensure working directory
-echo "Navigating to KumaMate directory..."
+echo "Navigating to Kuma Mate directory..."
 cd "$INSTALL_DIR"
 
 # Step 2: Install Node.js 18.x if not present
@@ -30,12 +30,12 @@ npm install
 echo "Creating systemd service..."
 sudo bash -c "cat > $SERVICE_FILE" << EOL
 [Unit]
-Description=KumaMate - VM Resource Monitoring Service
+Description=Kuma Mate - VM Resource Monitoring Service
 After=network.target
 
 [Service]
 Type=simple
-User=uptimekuma
+User=root
 WorkingDirectory=$INSTALL_DIR
 ExecStart=/usr/bin/node index.js
 Restart=always
@@ -46,13 +46,13 @@ WantedBy=multi-user.target
 EOL
 
 # Step 5: Enable and start the service
-echo "Enabling and starting KumaMate service..."
+echo "Enabling and starting Kuma Mate service..."
 sudo systemctl daemon-reload
 sudo systemctl enable kuma-mate
 sudo systemctl start kuma-mate
 
 # Step 6: Verify the service
-echo "Verifying KumaMate service..."
+echo "Verifying Kuma Mate service..."
 sudo systemctl status kuma-mate --no-pager
 
-echo "KumaMate setup complete! Access at http://localhost:4000"
+echo "Kuma Mate setup complete! Access at http://localhost:4000"
